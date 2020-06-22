@@ -41,9 +41,8 @@ jobs:
           CI: false # CRA treats warnings as errors in CI - re-enable if needed
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-      run: |
-        export 
-        npm run deploy
+      run: surge ./build ExpenceTracker.surge.sh
+       
       
     
         
