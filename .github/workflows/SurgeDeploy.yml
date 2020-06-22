@@ -36,9 +36,14 @@ jobs:
     - name: Install Surge
       run:  npm install --global surge
       
-      
     - name: Surge deploy
-      run : surge ./build ExpenceTracker.surge.sh --token ${{secrets.SURGE_TOKEN}}   
+      env:
+          CI: false # CRA treats warnings as errors in CI - re-enable if needed
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      run: |
+        export 
+        npm run deploy  
        
       
     
