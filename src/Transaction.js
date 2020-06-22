@@ -32,13 +32,7 @@ export default class Transaction extends Component
      
       HandleFormSubmit=(context,e)=>{
         debugger;
-        // this.setState(
-        //     {
-        //         Histroy:[...this.state.Histroy,{firstName:"John", lastName:"Doe", age:46}]
-        //     });
-        //     console.log(this.state.Histroy);
         e.preventDefault();
-       // handleForUpdateState
       }  
       
     render() {
@@ -49,7 +43,7 @@ export default class Transaction extends Component
             <h3>Add new transaction</h3>
              <div>
                  {console.log(context)}
-                <form onSubmit={(e)=>context.handleForUpdateState({TransactionName:this.TransactionName.current.value, Amount:this.TransactionText.current.value},e)}>
+                <form onSubmit={(e)=>context.handleForUpdateState({ID:Math.random(),TransactionName:this.TransactionName.current.value, Amount:this.TransactionText.current.value},e)}>
                 <div className="form-control">
                 <label type="text">Text</label>
                 <br></br>

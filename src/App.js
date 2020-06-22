@@ -9,7 +9,6 @@ import ApplicationContext from './AppContext';
 
 export default class App extends Component
 {
-  //{firstName:"John", lastName:"Doe", age:46}
   constructor(props){
     super(props);
     this.state={
@@ -50,18 +49,42 @@ export default class App extends Component
             e.preventDefault();
   }
   
+  handleContextForDeletetate=(data,e)=>{
+   debugger; 
+   var array = [...this.state.Histroy]; // make a separate copy of the array
+  var ReturnData = array.filter((e)=>(e.ID !== data))
+ // if (index !== -1) 
+ // {
+    //array.splice(index, 1);
 
-  
-  componentDidUpdate=()=>
-  {
-    debugger;
-   console.log("After Update");
-   console.log(this.state);
+    let Totalsum=0;
+    let Plus=0;
+    let Minus=0;
+    const sjum =  ReturnData.map((info,index)=>  
+    {
+      if(Math.sign(info.Amount)==1)
+      {
+      Plus+=parseInt(info.Amount,10);
+      }
+      else{
+        Minus+=parseInt(info.Amount,10);
+      }
+      Totalsum+=parseInt(info.Amount,10);
+    });
+    this.setState(
+      {
+        Histroy: ReturnData,
+        TotalSum:Totalsum,
+        MinusAmount:Minus.toString().replace('-',''),
+        PlusAmount:Plus
+      });
+  //}
   }
    render(){
     const contextData={
       data:this.state,
-      handleForUpdateState:this.handleContextForUpdateState
+      handleForUpdateState:this.handleContextForUpdateState,
+      handleForDeleteState:this.handleContextForDeletetate
   };
   return (
   <>
