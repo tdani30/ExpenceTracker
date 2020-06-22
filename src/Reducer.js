@@ -14,5 +14,6 @@ export const reducer = (state, action) => {
 			return state
 	}
 }
+
 const CountContext = React.createContext()
 export default CountContext

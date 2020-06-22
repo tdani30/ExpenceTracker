@@ -9,6 +9,7 @@ export default class Balance extends Component
             <>
             { 
             ////
+            
             console.log(context)}
             <div>
                 {/* {const sum =  arr.reduce((result,number)=> {result+number }) } */}

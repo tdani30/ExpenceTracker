@@ -40,6 +40,7 @@ export default class Transaction extends Component
         e.preventDefault();
        // handleForUpdateState
       }  
+      
     render() {
         return (
             <ApplicationContext.Consumer>
